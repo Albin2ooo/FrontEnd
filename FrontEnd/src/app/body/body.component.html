@@ -1,0 +1,56 @@
+<!-- carousel -->
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" id="Margin">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./assets/slide1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./assets/slide2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./assets/slide3.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Heading -->
+<div class="card shadow m-2 bg-body rounded">
+  <div class="card-body">
+    <h3 class="text-muted" style="text-align: center; font-family: 'Times New Roman', Times, serif">Lets Explore!</h3>
+  </div>
+</div>
+
+<!-- cards -->
+
+<div id="align-card">
+  <ng-container *ngFor="let b of booksArr | slice:0:20">
+    <div class="row m-2 h-150">
+      <div class="card shadow m-3 p-2" style="width: 17rem;" id="zoom">
+        <img [src]="b.image" class="card-img-top" id="image" width="15cm" height="250cm">
+        <div class="card-body text-center" id="card-ele">
+          <h5 class="card-title">{{b.title}}</h5>
+          <p class="card-text">By {{b.author}}</p>
+          <p class="card-text">Category: {{b.category}}</p>
+          <p class="card-text">Year: {{b.date | date:'yyyy'}}</p>
+          
+        </div>
+        <button type="button" class="btn btn-outline-secondary" *ngIf="status === true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
+            </path>
+          </svg>
+          <span class="m-2" (click)="toFav(b)">Add to Favourites</span>
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</div>
